@@ -14,9 +14,10 @@ export default function Words() {
     const [synonym, setSynonym] = useState('');
 
     const clearReducers = () => {
-        dispatch({ type: 'CLEAR_RHYME'})
-        dispatch({ type: 'CLEAR_SYNONYM'})
+        dispatch({ type: 'CLEAR_RHYME' })
+        dispatch({ type: 'CLEAR_SYNONYM' })
     }
+
 
     const sendWords = () => {
         clearReducers()
@@ -26,20 +27,22 @@ export default function Words() {
 
 
     return (
-        <div>
-            <h1>This is where the stuff will go</h1>
-            <input
-                type="text"
-                placeholder="means like"
-                value={synonym}
-                onChange={(event) => setSynonym(event.target.value)}>
-            </input>
-            <input
-                type="text"
-                placeholder="rhymes with"
-                value={rhyme}
-                onChange={(event) => setRhyme(event.target.value)}>
-            </input>
+        <>
+            <header>
+                <h1>placeholder for chatterbox graphic again</h1>
+                <input
+                    type="text"
+                    placeholder="means like"
+                    value={synonym}
+                    onChange={(event) => setSynonym(event.target.value)}>
+                </input>
+                <input
+                    type="text"
+                    placeholder="rhymes with"
+                    value={rhyme}
+                    onChange={(event) => setRhyme(event.target.value)}>
+                </input>
+            </header>
             <button
                 onClick={() => {
                     sendWords()
@@ -51,6 +54,6 @@ export default function Words() {
                 LOGEM
             </button>
             {(rhymeReturn && synonymReturn ? <Results /> : <span></span>)}
-        </div>
+        </>
     )
 }

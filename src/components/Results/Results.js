@@ -11,17 +11,20 @@ export default function Results() {
 
     //if there is
     const compare = (arrayOne, arrayTwo) => {
-        console.error('in compare')
-        let venn;
+
+        let result;
+        //if both words return some result, compare them and return
         if (arrayOne && arrayTwo) {
-            venn = arrayOne.filter(e => arrayTwo.indexOf(e) !== -1)
+            result = arrayOne.filter(e => arrayTwo.indexOf(e) !== -1)
+            if (!result[0]) {
+                result = arrayTwo;
+                result.unshift('eehhhh.... We couldn\'t find a match... So here\'s some synonyms instead')
+            }
+            return result;
+        } else {
+            return ['Ehhh... we didn\'t get a good result, try another search']
         }
-        if(!venn[0]){
-            venn = arrayTwo;
-            venn.unshift('No results matched your search, instead some synonyms')
-        }
-        console.error('before return', venn)
-        return venn;
+
     }
 
     useEffect(() => {
@@ -31,7 +34,7 @@ export default function Results() {
 
     return (
         <>
-            <h1>THERE BE STUFF</h1>
+            <h1>Your results!!</h1>
             <ul>
                 {overlap ? overlap.map((word) => {
                     return (

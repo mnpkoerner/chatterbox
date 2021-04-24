@@ -4,19 +4,25 @@ import {
   Route,
 
 } from 'react-router-dom';
+import Home from '../Home/Home'
 import Words from '../Words/Words'
 
 function App() {
   return (
     <Router>
-    <div className="App">
-      <h1>YOU HERE</h1>
+
+      <Route
+        exact
+        path="/">
+        <Home />
+      </Route>
+
       <Route
         exact
         path="/words">
         <Words />
       </Route>
-    </div>
+
     </Router>
   );
 }
