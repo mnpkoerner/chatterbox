@@ -5,6 +5,9 @@ const rhyme = (state = '', action) => {
         console.log('in reducer')
         return action.payload
     }
+    else if(action.type === 'CLEAR_RHYME'){
+        return ''
+    }
     else{
         return state;
     }
@@ -14,6 +17,9 @@ const synonym = (state = '', action) => {
     if(action.type === 'SET_SYNONYM'){
         console.log('in reducer')
         return action.payload
+    }
+    else if(action.type === 'CLEAR_SYNONYM'){
+        return ''
     }
     else {
         return state;

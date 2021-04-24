@@ -13,7 +13,13 @@ export default function Words() {
     const [rhyme, setRhyme] = useState('');
     const [synonym, setSynonym] = useState('');
 
+    const clearReducers = () => {
+        dispatch({ type: 'CLEAR_RHYME'})
+        dispatch({ type: 'CLEAR_SYNONYM'})
+    }
+
     const sendWords = () => {
+        clearReducers()
         dispatch({ type: 'GET_RHYME', payload: rhyme })
         dispatch({ type: 'GET_SYNONYM', payload: synonym })
     }
