@@ -47,11 +47,7 @@ export default function Words() {
                 onClick={() => {
                     sendWords()
                 }}>
-                SEND EM
-            </button>
-            <button
-                onClick={() => console.log(rhymeReturn, synonymReturn)}>
-                LOGEM
+                GO
             </button>
             {(rhymeReturn && synonymReturn ? <Results /> : <span></span>)}
         </>
