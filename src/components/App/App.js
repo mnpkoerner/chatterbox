@@ -10,7 +10,6 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <header className="App-header"></header>
       <h1>YOU HERE</h1>
       <Route
         exact

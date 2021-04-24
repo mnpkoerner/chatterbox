@@ -1,16 +1,22 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import Results from '../Results/Results'
 
 
 export default function Words() {
 
     const dispatch = useDispatch()
 
-    const rhymeReturn = useSelector(store=>store.words.rhyme)
-    const synonymReturn = useSelector(store=>store.words.synonym)
+    const rhymeReturn = useSelector(store => store.words.rhyme)
+    const synonymReturn = useSelector(store => store.words.synonym)
 
     const [rhyme, setRhyme] = useState('');
     const [synonym, setSynonym] = useState('');
+
+    const sendWords = () => {
+        dispatch({ type: 'GET_RHYME', payload: rhyme })
+        dispatch({ type: 'GET_SYNONYM', payload: synonym })
+    }
 
 
     return (
@@ -29,12 +35,16 @@ export default function Words() {
                 onChange={(event) => setRhyme(event.target.value)}>
             </input>
             <button
-                onClick={()=>{
-                    dispatch({type: 'GET_RHYME', payload: rhyme})
-                    dispatch({type: 'GET_SYNONYM', payload: synonym})
-                }}
-            >SEND EM</button>
-            <button onClick={()=>console.log(rhymeReturn, synonymReturn)}>LOGEM</button>
+                onClick={() => {
+                    sendWords()
+                }}>
+                SEND EM
+            </button>
+            <button
+                onClick={() => console.log(rhymeReturn, synonymReturn)}>
+                LOGEM
+            </button>
+            {(rhymeReturn && synonymReturn ? <Results /> : <span></span>)}
         </div>
     )
 }
