@@ -11,3 +11,9 @@ button{
 ul{
   list-style: none;
 }
+
+.text-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

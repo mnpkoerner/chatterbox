@@ -29,19 +29,22 @@ export default function Words() {
 
     return (
         <>
-            <header>
+            <header className="text-container">
 
                 <h1>placeholder for chatterbox graphic again</h1>
-
+                <label for="synonym">I need a word that means something like:</label>
                 <input
                     type="text"
+                    id="synonym"
                     placeholder="means like"
                     value={synonym}
                     onChange={(event) => setSynonym(event.target.value)}>
                 </input>
 
+                <label for="rhyme">That rhymes with:</label>
                 <input
                     type="text"
+                    id="rhyme"
                     placeholder="rhymes with"
                     value={rhyme}
                     onChange={(event) => setRhyme(event.target.value)}>
