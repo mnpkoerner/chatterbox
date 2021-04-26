@@ -53,7 +53,7 @@ export default function Words() {
                 <button onClick={() => { sendWords() }}>GO</button>
 
             </header>
-
+        
             {(rhymeReturn ? <Results /> : <span></span>)}
 
         </>

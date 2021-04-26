@@ -52,16 +52,16 @@ export default function Results() {
     }, [])
 
     return (
-        <section>
+        <section id="results" className="text-container">
+            <h3>Results:</h3>
 
-            <ul>
                 {overlap ? overlap.map((word) => {
                     return (
-                        <li key={word}>{word}</li>
+                        <p>{word}</p>
                     )
                 }) : <span></span>}
-            </ul>
-            
+
+
         </section>
     )
 }
