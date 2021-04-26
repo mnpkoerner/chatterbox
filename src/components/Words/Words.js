@@ -8,7 +8,7 @@ export default function Words() {
     const dispatch = useDispatch()
 
     const rhymeReturn = useSelector(store => store.words.rhyme)
-    const synonymReturn = useSelector(store => store.words.synonym)
+    // const synonymReturn = useSelector(store => store.words.synonym)
 
     const [rhyme, setRhyme] = useState('');
     const [synonym, setSynonym] = useState('');
@@ -49,7 +49,7 @@ export default function Words() {
                 }}>
                 GO
             </button>
-            {(rhymeReturn && synonymReturn ? <Results /> : <span></span>)}
+            {(rhymeReturn ? <Results /> : <span></span>)}
         </>
     )
 }

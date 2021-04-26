@@ -14,7 +14,17 @@ export default function Results() {
 
         let result;
         //if both words return some result, compare them and return
-        if (arrayOne && arrayTwo) {
+        if (!arrayOne && arrayTwo){
+            result = arrayTwo
+            result.unshift('Your search didn\'t dig up anything too good, here\'s some synonyms instead')
+            return result
+        }
+        else if (arrayOne && !arrayTwo){
+            result = arrayOne
+            result.unshift('We couldn\'t dig up anything too good, so here\'s some words that rhymed')
+            return result;
+        }
+        else if (arrayOne && arrayTwo) {
             result = arrayOne.filter(e => arrayTwo.indexOf(e) !== -1)
             if (!result[0]) {
                 result = arrayTwo;
@@ -24,7 +34,6 @@ export default function Results() {
         } else {
             return ['Ehhh... we didn\'t get a good result, try another search']
         }
-
     }
 
     useEffect(() => {
@@ -34,11 +43,10 @@ export default function Results() {
 
     return (
         <>
-            <h1>Your results!!</h1>
             <ul>
                 {overlap ? overlap.map((word) => {
                     return (
-                        <li>{word}</li>
+                        <li key={word}>{word}</li>
                     )
                 }) : <span></span>}
             </ul>
