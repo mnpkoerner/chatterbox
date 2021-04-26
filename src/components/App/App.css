@@ -7,3 +7,7 @@ body{
 button{
   font-family: 'Lato', sans-serif;
 }
+
+ul{
+  list-style: none;
+}

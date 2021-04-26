@@ -30,27 +30,29 @@ export default function Words() {
     return (
         <>
             <header>
+
                 <h1>placeholder for chatterbox graphic again</h1>
+
                 <input
                     type="text"
                     placeholder="means like"
                     value={synonym}
                     onChange={(event) => setSynonym(event.target.value)}>
                 </input>
+
                 <input
                     type="text"
                     placeholder="rhymes with"
                     value={rhyme}
                     onChange={(event) => setRhyme(event.target.value)}>
                 </input>
+
+                <button onClick={() => { sendWords() }}>GO</button>
+
             </header>
-            <button
-                onClick={() => {
-                    sendWords()
-                }}>
-                GO
-            </button>
+
             {(rhymeReturn ? <Results /> : <span></span>)}
+
         </>
     )
 }
