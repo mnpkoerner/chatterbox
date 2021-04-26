@@ -7,9 +7,10 @@ export default function Words() {
 
     const dispatch = useDispatch()
 
+    //once a rhyme comes back, it renders the results component
     const rhymeReturn = useSelector(store => store.words.rhyme)
-    // const synonymReturn = useSelector(store => store.words.synonym)
 
+    //state to deal with rhymes and synonyms
     const [rhyme, setRhyme] = useState('');
     const [synonym, setSynonym] = useState('');
 
@@ -18,7 +19,7 @@ export default function Words() {
         dispatch({ type: 'CLEAR_SYNONYM' })
     }
 
-
+    //dispatch to call results from API
     const sendWords = () => {
         clearReducers()
         dispatch({ type: 'GET_RHYME', payload: rhyme })

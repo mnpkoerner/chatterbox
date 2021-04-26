@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 export default function Results() {
@@ -9,11 +9,13 @@ export default function Results() {
 
     const [overlap, setOverlap] = useState('')
 
-    //if there is
+    //first two conditional blocks render if one or the two serach terms don't return anything
+    //third block filters the two results from the API and pushes any result they share into
+    //a new array that renders.
     const compare = (arrayOne, arrayTwo) => {
 
         let result;
-        //if both words return some result, compare them and return
+
         if (!arrayOne && arrayTwo){
             result = arrayTwo
             result.unshift('Your search didn\'t dig up anything too good, here\'s some synonyms instead')
