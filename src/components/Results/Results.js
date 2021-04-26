@@ -52,7 +52,7 @@ export default function Results() {
     }, [])
 
     return (
-        <>
+        <section>
             <ul>
                 {overlap ? overlap.map((word) => {
                     return (
@@ -60,6 +60,6 @@ export default function Results() {
                     )
                 }) : <span></span>}
             </ul>
-        </>
+        </section>
     )
 }
