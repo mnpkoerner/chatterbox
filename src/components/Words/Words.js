@@ -22,44 +22,56 @@ export default function Words() {
     //dispatch to call results from API
     const sendWords = () => {
         clearReducers()
-        if (!Number(rhyme) || !Number(synonym)){
+        if (Number(rhyme) || Number(synonym)) {
             setRhyme('');
             setSynonym('');
             return false
         }
         dispatch({ type: 'GET_RHYME', payload: rhyme })
         dispatch({ type: 'GET_SYNONYM', payload: synonym })
+        setRhyme('')
+        setSynonym('')
     }
 
 
     return (
         <div className="text-container">
+
+            <header>
+                <img src="/chatter.png" className="chat-head" alt="Chatterbox"></img>
+            </header>
+
             <section className="text-container">
 
-                <h1>placeholder for chatterbox graphic again</h1>
-                <label for="synonym">I need a word that means something like:</label>
-                <input
-                    type="text"
-                    id="synonym"
-                    placeholder="means like"
-                    value={synonym}
-                    onChange={(event) => setSynonym(event.target.value)}>
-                </input>
+                <div>
+                    <label htmlFor="synonym">I need a synonym for...</label>
+                    <input
+                        type="text"
+                        id="synonym"
+                        placeholder="synonym..."
+                        value={synonym}
+                        onChange={(event) => setSynonym(event.target.value)}>
+                    </input>
+                </div>
 
-                <label for="rhyme">That rhymes with:</label>
-                <input
-                    type="text"
-                    id="rhyme"
-                    placeholder="rhymes with"
-                    value={rhyme}
-                    onChange={(event) => setRhyme(event.target.value)}>
-                </input>
+                <div>
+                    <label htmlFor="rhyme">That rhymes with...</label>
+                    <input
+                        type="text"
+                        id="rhyme"
+                        placeholder="rhyme..."
+                        value={rhyme}
+                        onChange={(event) => setRhyme(event.target.value)}>
+                    </input>
+                </div>
 
-                <button onClick={() => { sendWords() }}>GO</button>
+                <div>
+                    <button onClick={() => { sendWords() }}>GO</button>
+                </div>
 
             </section>
 
-            {(rhymeReturn ? <Results /> : <span></span>)}
+            {(rhymeReturn ? <Results /> : <img src="/chomper-01.png" className="chat-head" alt="wind up clattering teeth with googly eyes"></img>)}
 
         </div>
     )
