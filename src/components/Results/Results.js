@@ -59,7 +59,7 @@ export default function Results() {
 
     return (
         <section id="results" className="text-container">
-
+            <h3>Your Results:</h3>
             {overlap ? overlap.map((word) => {
                 return (
                     <p key={word}>{word}</p>

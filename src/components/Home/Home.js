@@ -13,15 +13,17 @@ export default function Home() {
 
             <main className="text-container">
 
-                <p>
+                <h2>
                     Don't stumble through sonnets or get hung up on haikus,
+                </h2>
+                <h2>
                     use Chatterbox to find the rhyme you can't unearth yourself.
-                </p>
+                </h2>
 
                 <button onClick={() => history.push('/words')}>Try It Out!</button>
                 <div className="image-container">
                     <img src="/chomper-01.png" className="chat-head" alt="wind up clattering teeth with googly eyes"></img>
-                    
+
                 </div>
             </main>
 
