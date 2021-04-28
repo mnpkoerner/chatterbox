@@ -22,14 +22,19 @@ export default function Words() {
     //dispatch to call results from API
     const sendWords = () => {
         clearReducers()
+        if (!Number(rhyme) || !Number(synonym)){
+            setRhyme('');
+            setSynonym('');
+            return false
+        }
         dispatch({ type: 'GET_RHYME', payload: rhyme })
         dispatch({ type: 'GET_SYNONYM', payload: synonym })
     }
 
 
     return (
-        <>
-            <header className="text-container">
+        <div className="text-container">
+            <section className="text-container">
 
                 <h1>placeholder for chatterbox graphic again</h1>
                 <label for="synonym">I need a word that means something like:</label>
@@ -52,10 +57,10 @@ export default function Words() {
 
                 <button onClick={() => { sendWords() }}>GO</button>
 
-            </header>
-        
+            </section>
+
             {(rhymeReturn ? <Results /> : <span></span>)}
 
-        </>
+        </div>
     )
 }

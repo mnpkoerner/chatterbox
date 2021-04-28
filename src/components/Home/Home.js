@@ -6,7 +6,11 @@ export default function Home() {
 
     return (
         <div className="text-container">
-            <header><h1>Placeholder for Chatterbox image</h1></header>
+
+            <header>
+                <img src="/chatter.png" className="chat-head"></img>
+            </header>
+            
             <main>
 
                 <p>

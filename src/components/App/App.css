@@ -1,5 +1,11 @@
 body{
   font-family: 'Lato', sans-serif;
+  display: flex;
+}
+header{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 ::placeholder{
   font-family: 'Lato', sans-serif;
@@ -8,8 +14,15 @@ button{
   font-family: 'Lato', sans-serif;
 }
 
-.text-container{
+
+/* .text-container{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  width: 80%;
+} */
+
+.chat-head{
+  width: 80%;
 }
